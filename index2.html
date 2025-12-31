@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff0080, #ff8c00, #40e0d0);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Comic Sans MS', cursive;
+  overflow: hidden;
+}
+
+@keyframes gradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+h1 {
+  font-size: 3.2em;
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 20px #fff, 0 0 40px pink;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {text-shadow: 0 0 10px white;}
+  to {text-shadow: 0 0 30px yellow;}
+}
+
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: white;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  0% {transform: translateY(-10px);}
+  100% {transform: translateY(100vh);}
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 20px;
+  border: none;
+  background: hotpink;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 15px pink;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div style="z-index:2; text-align:center;">
+  <h1>🎆 HAPPY NEW YEAR SHER 😘 🎆</h1>
+  <button onclick="playMusic()">▶ Tap to Play Music</button>
+</div>
+
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7b1b8c1bbf.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playMusic() {
+  document.getElementById("music").play();
+}
+
+for (let i = 0; i < 60; i++) {
+  let c = document.createElement("div");
+  c.className = "confetti";
+  c.style.left = Math.random() * 100 + "vw";
+  c.style.background = "hsl(" + Math.random()*360 + ",100%,50%)";
+  c.style.animationDuration = (Math.random()*3+3) + "s";
+  document.body.appendChild(c);
+}
+</script>
+
+</body>
+</html>
