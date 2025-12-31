@@ -5,19 +5,20 @@
 <title>Happy New Year</title>
 
 <style>
+  #bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("ny.jpeg") center center / cover no-repeat;
+}
 body {
   margin: 0;
-  min-height: 100svh;
-  height: 100svh;
-  background: 
-   linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-   url("ny.jpeg") center center / cover no-repeat fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Comic Sans MS', cursive;
   overflow: hidden;
+  font-family: 'Comic Sans MS', cursive;
 }
+  <div id="bg"></div>
 
 @keyframes gradient {
   0% {background-position: 0% 50%;}
@@ -100,6 +101,7 @@ for (let i = 0; i < 60; i++) {
   
 </body>
 </html>
+
 
 
 
