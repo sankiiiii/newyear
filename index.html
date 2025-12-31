@@ -71,14 +71,21 @@ button {
   <button onclick="playMusic()">▶ Tap to Play Music</button>
 </div>
 
-<audio id="music" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7b1b8c1bbf.mp3" type="audio/mpeg">
+<audio id="music" loop muted>
+  <source src="newyear.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function playMusic() {
-  document.getElementById("music").play();
-}
+const music = document.getElementById("music");
+
+window.onload = () => {
+  music.play(); // starts silently (allowed)
+};
+
+document.body.addEventListener("click", () => {
+  music.muted = false;
+  music.play();
+});
 
 for (let i = 0; i < 60; i++) {
   let c = document.createElement("div");
@@ -89,6 +96,7 @@ for (let i = 0; i < 60; i++) {
   document.body.appendChild(c);
 }
 </script>
-
+  
 </body>
 </html>
+
